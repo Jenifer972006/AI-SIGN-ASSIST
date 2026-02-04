@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Assist - Empowering Communication</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="login-left">
+                <div class="brand-section">
+                    <div class="logo-container">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="#1E88E5" opacity="0.1"/>
+                            <path d="M30 40 Q30 25 45 25 Q60 25 60 40 L60 60 Q60 75 45 75 Q30 75 30 60 Z" fill="#1E88E5"/>
+                            <circle cx="45" cy="45" r="5" fill="white"/>
+                            <path d="M35 55 Q40 60 45 58 Q50 56 55 60" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </svg>
+                        <h1 class="brand-name">Sign Assist</h1>
+                    </div>
+                    <p class="tagline">Breaking barriers, building connections</p>
+                </div>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <span class="feature-icon">🤟</span>
+                        <h3>Sign Language Recognition</h3>
+                        <p>Advanced AI translates sign language to speech and text in real-time</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🗣️</span>
+                        <h3>Speech to Sign</h3>
+                        <p>Converts spoken words into accurate sign language animations</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🌍</span>
+                        <h3>Multi-Language Support</h3>
+                        <p>Available in Tamil, English, Hindi, Telugu, and Kannada</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="login-right">
+                <div class="login-form-container">
+                    <h2>Welcome Back</h2>
+                    <p class="login-subtitle">Enter your details to continue</p>
+                    
+                    <form id="loginForm" class="login-form">
+                        <div class="form-group">
+                            <label for="userName">Full Name</label>
+                            <input type="text" id="userName" name="userName" required placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userAge">Age</label>
+                            <input type="number" id="userAge" name="userAge" required placeholder="Enter your age" min="1" max="120">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userLanguage">Preferred Language</label>
+                            <select id="userLanguage" name="userLanguage" required>
+                                <option value="">Select Language</option>
+                                <option value="en">English</option>
+                                <option value="ta">Tamil (தமிழ்)</option>
+                                <option value="hi">Hindi (हिंदी)</option>
+                                <option value="te">Telugu (తెలుగు)</option>
+                                <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">
+                            <span>Get Started</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <p>Designed for hospitals, schools, colleges, and public spaces</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mode Selection Page -->
+    <div id="modeSelectionPage" class="page">
+        <div class="app-header">
+            <div class="logo-small">
+                <svg class="logo-icon-small" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#1E88E5" opacity="0.1"/>
+                    <path d="M30 40 Q30 25 45 25 Q60 25 60 40 L60 60 Q60 75 45 75 Q30 75 30 60 Z" fill="#1E88E5"/>
+                    <circle cx="45" cy="45" r="5" fill="white"/>
+                </svg>
+                <span>Sign Assist</span>
+            </div>
+            <div class="user-info">
+                <span id="userNameDisplay"></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        
+        <div class="mode-selection-container">
+            <h2 class="page-title">How would you like to communicate?</h2>
+            <p class="page-subtitle">Select your input method</p>
+            
+            <div class="mode-cards">
+                <div class="mode-card" onclick="selectInputMode('sign')">
+                    <div class="mode-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <path d="M40 10 L50 20 L50 40 L40 50 L30 40 L30 20 Z" fill="#1E88E5" opacity="0.2"/>
+                            <circle cx="40" cy="30" r="15" stroke="#1E88E5" stroke-width="3" fill="none"/>
+                            <path d="M30 50 Q40 60 50 50" stroke="#1E88E5" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Sign Language</h3>
+                    <p>Use your camera to communicate with sign language</p>
+                    <span class="mode-badge">Camera Required</span>
+                </div>
+                
+                <div class="mode-card" onclick="selectInputMode('speech')">
+                    <div class="mode-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="35" r="12" fill="#1E88E5" opacity="0.2"/>
+                            <rect x="36" y="47" width="8" height="15" fill="#1E88E5" opacity="0.2"/>
+                            <path d="M40 20 Q50 20 50 35 Q50 45 40 45 Q30 45 30 35 Q30 20 40 20" stroke="#1E88E5" stroke-width="3" fill="none"/>
+                            <path d="M25 35 Q25 55 40 55 Q55 55 55 35" stroke="#1E88E5" stroke-width="3" fill="none"/>
+                            <line x1="40" y1="55" x2="40" y2="65" stroke="#1E88E5" stroke-width="3"/>
+                            <line x1="30" y1="65" x2="50" y2="65" stroke="#1E88E5" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3>Voice/Speech</h3>
+                    <p>Speak naturally and get sign language output</p>
+                    <span class="mode-badge">Microphone Required</span>
+                </div>
+                
+                <div class="mode-card" onclick="selectInputMode('text')">
+                    <div class="mode-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <rect x="20" y="15" width="40" height="50" rx="4" stroke="#1E88E5" stroke-width="3" fill="none"/>
+                            <line x1="28" y1="25" x2="52" y2="25" stroke="#1E88E5" stroke-width="2"/>
+                            <line x1="28" y1="35" x2="52" y2="35" stroke="#1E88E5" stroke-width="2"/>
+                            <line x1="28" y1="45" x2="45" y2="45" stroke="#1E88E5" stroke-width="2"/>
+                            <circle cx="40" cy="40" r="25" fill="#1E88E5" opacity="0.1"/>
+                        </svg>
+                    </div>
+                    <h3>Text Input</h3>
+                    <p>Type your message and receive sign language</p>
+                    <span class="mode-badge">Keyboard</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Communication Page -->
+    <div id="communicationPage" class="page">
+        <div class="app-header">
+            <div class="logo-small">
+                <svg class="logo-icon-small" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#1E88E5" opacity="0.1"/>
+                    <path d="M30 40 Q30 25 45 25 Q60 25 60 40 L60 60 Q60 75 45 75 Q30 75 30 60 Z" fill="#1E88E5"/>
+                    <circle cx="45" cy="45" r="5" fill="white"/>
+                </svg>
+                <span>Sign Assist</span>
+            </div>
+            <div class="user-info">
+                <button class="btn-back" onclick="goToModeSelection()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Back
+                </button>
+                <span id="userNameDisplayComm"></span>
+            </div>
+        </div>
+        
+        <div class="communication-container">
+            <div class="communication-layout">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <div class="section-header">
+                        <h3 id="inputSectionTitle">Your Input</h3>
+                        <div class="mode-indicator" id="currentModeIndicator"></div>
+                    </div>
+                    
+                    <!-- Sign Language Input -->
+                    <div id="signInputArea" class="input-area hidden">
+                        <div class="camera-container">
+                            <video id="cameraFeed" autoplay playsinline></video>
+                            <canvas id="signCanvas"></canvas>
+                            <div class="camera-overlay">
+                                <div class="detection-status" id="detectionStatus">
+                                    <div class="status-dot"></div>
+                                    <span>Position your hands in view</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="camera-controls">
+                            <button class="btn-control" id="startSignButton" onclick="startSignDetection()">
+                                <span>Start Detection</span>
+                            </button>
+                            <button class="btn-control secondary" id="stopSignButton" onclick="stopSignDetection()" style="display:none;">
+                                <span>Stop</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Speech Input -->
+                    <div id="speechInputArea" class="input-area hidden">
+                        <div class="speech-visualizer">
+                            <div class="speech-animation">
+                                <div class="sound-wave"></div>
+                                <div class="sound-wave"></div>
+                                <div class="sound-wave"></div>
+                                <div class="sound-wave"></div>
+                                <div class="sound-wave"></div>
+                            </div>
+                            <p class="speech-status" id="speechStatus">Click the button to start speaking</p>
+                        </div>
+                        <div class="speech-controls">
+                            <button class="btn-control mic-button" id="startSpeechButton" onclick="startSpeechRecognition()">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                    <path d="M15 5 Q20 5 20 12 Q20 18 15 18 Q10 18 10 12 Q10 5 15 5" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M7 12 Q7 22 15 22 Q23 22 23 12" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <line x1="15" y1="22" x2="15" y2="27" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="10" y1="27" x2="20" y2="27" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                            <button class="btn-control secondary" id="stopSpeechButton" onclick="stopSpeechRecognition()" style="display:none;">
+                                <span>Stop Listening</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Text Input -->
+                    <div id="textInputArea" class="input-area hidden">
+                        <div class="text-input-container">
+                            <textarea id="textInput" placeholder="Type your message here..." rows="6"></textarea>
+                            <div class="text-controls">
+                                <button class="btn-control" onclick="processTextInput()">
+                                    <span>Translate</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                                <button class="btn-control secondary" onclick="clearTextInput()">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recognized-text-container">
+                        <h4>Recognized Text:</h4>
+                        <div class="recognized-text" id="recognizedText">Waiting for input...</div>
+                    </div>
+                </div>
+                
+                <!-- Output Section -->
+                <div class="output-section">
+                    <div class="section-header">
+                        <h3>Translation Output</h3>
+                        <div class="output-options">
+                            <button class="output-toggle active" data-output="sign" onclick="toggleOutputMode('sign')">Sign</button>
+                            <button class="output-toggle active" data-output="text" onclick="toggleOutputMode('text')">Text</button>
+                            <button class="output-toggle active" data-output="speech" onclick="toggleOutputMode('speech')">Speech</button>
+                        </div>
+                    </div>
+                    
+                    <div class="output-display">
+                        <!-- Sign Language Animation Output -->
+                        <div id="signOutput" class="output-area">
+                            <div class="sign-animation-container">
+                                <canvas id="signOutputCanvas"></canvas>
+                                <div class="sign-overlay">
+                                    <p id="signAnimationStatus">Sign language will appear here</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Text Output -->
+                        <div id="textOutput" class="output-area">
+                            <div class="text-output-box">
+                                <p id="translatedText">Translation will appear here...</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Speech Output Controls -->
+                        <div id="speechOutput" class="output-area">
+                            <div class="speech-output-container">
+                                <div class="speaker-animation">
+                                    <svg class="speaker-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                        <path d="M25 30 L35 30 L50 20 L50 60 L35 50 L25 50 Z" fill="#1E88E5"/>
+                                        <path class="wave wave1" d="M55 35 Q60 40 55 45" stroke="#1E88E5" stroke-width="3" fill="none"/>
+                                        <path class="wave wave2" d="M60 30 Q68 40 60 50" stroke="#1E88E5" stroke-width="3" fill="none"/>
+                                        <path class="wave wave3" d="M65 25 Q75 40 65 55" stroke="#1E88E5" stroke-width="3" fill="none"/>
+                                    </svg>
+                                </div>
+                                <p id="speechOutputStatus">Audio output ready</p>
+                                <button class="btn-control" id="playSpeechButton" onclick="playSpeech()" disabled>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M5 3 L15 10 L5 17 Z" fill="currentColor"/>
+                                    </svg>
+                                    <span>Play Speech</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conversation-history">
+                        <h4>Recent Translations</h4>
+                        <div class="history-list" id="historyList">
+                            <p class="history-empty">No translations yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script src="script.js"></script>
+</body>
+</html>
